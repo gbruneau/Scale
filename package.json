@@ -1,0 +1,22 @@
+{
+  "name": "scale",
+  "description": "Lenght and size scaling.What size would an orange be if the Earth is scaled to the size of a grain of sand?",
+  "version": "1.0.0",
+  "main": "index.html",
+  "devDependencies": {
+    "http-server": "^14.0.0"
+  },
+  "scripts": {
+    "serve": "http-server -p 8081"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gbruneau/Scale.git"
+  },
+  "author": "Guy Bruneau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gbruneau/Scale/issues"
+  },
+  "homepage": "https://github.com/gbruneau/Scale#readme"
+}

@@ -18,12 +18,15 @@
 {"ObjectEn":"Raisin","ObjectFr":"Raisin","SizeInMeter": 0.01  ,"URL":"https://en.wikipedia.org/wiki/Raisin"},
 {"ObjectEn":"Watermelon","ObjectFr":"Melon d'eau","SizeInMeter": 0.3  ,"URL":"https://www.ics-agri.com/ouverturepdf.php?file=product-watermelon-semadonis-1463567253.pdf"},
 
+{"ObjectEn":"Average car lenght","ObjectFr":"Longueur moyene d'une voiture","SizeInMeter": 4.5 ,"URL":"https://www.nadaguides.com/Cars/Shopping-Guides/how-long-is-the-average-car"},
+{"ObjectEn":"Average semi truck lenght","ObjectFr":"Longueur moyene d'un camion remorque","SizeInMeter": 21.3 ,"URL":"https://schneiderjobs.com/blog/how-long-is-a-semi-truck-fun-facts"},
+
 {"ObjectEn":"Horizon distance","ObjectFr":"Distance de l'horizon","SizeInMeter":5000,"URL":"https://en.wikipedia.org/wiki/Horizon"},
 {"ObjectEn":"Centre Vidéotron Quebec City (diameter)","ObjectFr":"Diamètre du centre vidéotron (Québec)","SizeInMeter":170,"URL":"https://gbruneau.github.io/BestMap/#18/46.82802/-71.24791"},
 
 {"ObjectEn":"Nearest Star Distance (Alpha Centauri)","ObjectFr":"Distance de l'étoile la plus proche (Alpha Centauri)","SizeInMeter":4.1343E+16,"URL":"https://en.wikipedia.org/wiki/Alpha_Centauri"},
 {"ObjectEn":"Nearest Galaxy, Andromeda (M31)","ObjectFr":"Distance la galaxie d'andromède (M31)","SizeInMeter":2.361E+22,"URL":"https://en.wikipedia.org/wiki/Andromeda_Galaxy"},
-{"ObjectEn":"Milky way stellar disk diameter","ObjectFr":"Diamètre du disque stellaire de la voie lacté","SizeInMeter":1.135288e+21,"URL":"https://www.sciencenews.org/article/astronomers-have-found-edge-milky-way-size"},
+{"ObjectEn":"Milky way galacy stellar disk diameter","ObjectFr":"Diamètre du disque stellaire de la galaxie voie lacté","SizeInMeter":1.135288e+21,"URL":"https://www.sciencenews.org/article/astronomers-have-found-edge-milky-way-size"},
 {"ObjectEn":"Quasar J0313–1806 Distance","ObjectFr":"Distance du quasar le plus loins (J0313–1806)","SizeInMeter":1.26679181028e+26,"URL":"https://en.wikipedia.org/wiki/J0313%E2%80%931806"},
 {"ObjectEn":"Magelan Cluster distance","ObjectFr":"Distance du nuage de magellan","SizeInMeter":1.542099e+21,"URL":"https://en.wikipedia.org/wiki/Large_Magellanic_Cloud"},
 {"ObjectEn":"Observable universe diameter","ObjectFr":"Diamètre de l'univer visible","SizeInMeter":8.8e26,"URL":"https://en.wikipedia.org/wiki/Observable_universe"},

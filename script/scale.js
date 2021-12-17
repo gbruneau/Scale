@@ -29,6 +29,7 @@ class Units {
         return bestUnit;
     }
     sortBySize() {
+        /* Sort from large to small */
         this.UnitList.sort(function (a, b) {
             if (a.SizeInMeter < b.SizeInMeter) {
                 return -1;
@@ -322,6 +323,7 @@ $(document).ready(function () {
 
 
     reqUnit.done(function () {
+        unitList.sortBySize();
         var reqLabel = readLabels(languages, labelURL);
         reqLabel.done(function () {
             objList = new ScaleObjects(unitList);

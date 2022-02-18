@@ -32,7 +32,7 @@ class t9nTranslation {
     /**
      * Fallback Language if user language is not supported
      */
-    #FallbackLanguage = "EN";
+    #FallbackLanguage = "FR";
     /**
      * Map of all the transltable labels
      */

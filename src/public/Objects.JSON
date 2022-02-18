@@ -14,15 +14,27 @@
 {"ObjectEn":"Marble Diameter","ObjectFr":"Le diamètre d'une bille","SizeInMeter":0.015,"URL":"https://www.marblecollecting.com/"},
 {"ObjectEn":"Grain of sand","ObjectFr":"Grain de sable","SizeInMeter":0.000415,"URL":"https://en.wikipedia.org/wiki/Grain_size"},
 
+{"ObjectEn":"Table globe of Earth","ObjectFr":"Globe Terrestre de table","SizeInMeter":30e-2,"URL":"https://www.amazon.ca/"},
+
 {"ObjectEn":"Orange","ObjectFr":"Orange","SizeInMeter":70e-3,"URL":"https://askinglot.com/what-size-is-an-orange"},
 {"ObjectEn":"Raisin","ObjectFr":"Raisin","SizeInMeter": 0.01  ,"URL":"https://en.wikipedia.org/wiki/Raisin"},
-{"ObjectEn":"Watermelon","ObjectFr":"Melon d'eau","SizeInMeter": 0.3  ,"URL":"https://www.ics-agri.com/ouverturepdf.php?file=product-watermelon-semadonis-1463567253.pdf"},
 
 {"ObjectEn":"Average car lenght","ObjectFr":"Longueur moyene d'une voiture","SizeInMeter": 4.5 ,"URL":"https://www.nadaguides.com/Cars/Shopping-Guides/how-long-is-the-average-car"},
 {"ObjectEn":"Average semi truck lenght","ObjectFr":"Longueur moyene d'un camion remorque","SizeInMeter": 21.3 ,"URL":"https://schneiderjobs.com/blog/how-long-is-a-semi-truck-fun-facts"},
 
 {"ObjectEn":"Horizon distance","ObjectFr":"Distance de l'horizon","SizeInMeter":5000,"URL":"https://en.wikipedia.org/wiki/Horizon"},
 {"ObjectEn":"Centre Vidéotron Quebec City (diameter)","ObjectFr":"Diamètre du centre vidéotron (Québec)","SizeInMeter":170,"URL":"https://gbruneau.github.io/BestMap/#18/46.82802/-71.24791"},
+
+
+{"ObjectEn":"8 Floors Building","ObjectFr":"Édifice de 8 étages","SizeInMeter": 32  ,"URL":"https://www.rbq.gouv.qc.ca/fileadmin/medias/pdf/Publications/francais/bonnes-pratiques-determination-batiment-hauteur.pdf"},
+
+{"ObjectEn":"10 Floors Building","ObjectFr":"Édifice de 10 étages","SizeInMeter": 40  ,"URL":"https://www.rbq.gouv.qc.ca/fileadmin/medias/pdf/Publications/francais/bonnes-pratiques-determination-batiment-hauteur.pdf"},
+
+{"ObjectEn":"20 Floors Building","ObjectFr":"Édifice de 20 étages","SizeInMeter": 80  ,"URL":"https://www.rbq.gouv.qc.ca/fileadmin/medias/pdf/Publications/francais/bonnes-pratiques-determination-batiment-hauteur.pdf"},
+
+{"ObjectEn":"50 Floors Building","ObjectFr":"Édifice de 50 étages","SizeInMeter": 200  ,"URL":"https://www.rbq.gouv.qc.ca/fileadmin/medias/pdf/Publications/francais/bonnes-pratiques-determination-batiment-hauteur.pdf"},
+
+{"ObjectEn":"100 Floors Building","ObjectFr":"Édifice de 100 étages","SizeInMeter": 400  ,"URL":"https://www.rbq.gouv.qc.ca/fileadmin/medias/pdf/Publications/francais/bonnes-pratiques-determination-batiment-hauteur.pdf"},
 
 
 {"ObjectEn":"Most distant known galaxy (GN-z11)","ObjectFr":"Distance de la galaxie la plus éloignée (GN-z11)","SizeInMeter":3.02743375123e+26,"URL":"https://en.wikipedia.org/wiki/GN-z11"},

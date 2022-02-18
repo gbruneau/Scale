@@ -33,6 +33,7 @@ body {
   width: 75%;
   font-size: 2vw;
   background-color: var(--inputBG);
+  font-family: 'Assistant';
 }
 
 
@@ -123,6 +124,20 @@ table th {
     border-bottom: 0;
   }
 }
+
+/* === Langauge selector === */
+
+#langSelect {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+#lang {
+  background-color: var(--pageBG);
+  color: var(--tableBorder);
+}
+
 
 /* ===================== Layout ========================*/
 

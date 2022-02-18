@@ -29,7 +29,7 @@ function autocomplete(inp, arr) {
             var re = new RegExp(val, "i");
             b.innerHTML = arr[i].replace(re,"<strong>"+val+"</strong>");  
             /*insert a input field that will hold the current array item's value:*/
-            b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+            b.innerHTML += '<input type="hidden" value="' + arr[i] + '">';
             /*execute a function when someone clicks on the item value (DIV element):*/
             b.addEventListener("click", function(e) {
                 /*insert the value for the autocomplete text field:*/

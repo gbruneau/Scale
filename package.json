@@ -1,13 +1,12 @@
 {
   "name": "scale",
   "description": "Lenght and size scaling.What size would an orange be if the Earth is scaled to the size of a grain of sand?",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "index.html",
-  "devDependencies": {
-    "http-server": "^14.0.0"
-  },
   "scripts": {
-    "serve": "http-server -p 8081"
+    "dev": "vite",
+    "build": "vite build --emptyOutDir",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -18,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/gbruneau/Scale/issues"
   },
-  "homepage": "https://github.com/gbruneau/Scale#readme"
+  "homepage": "https://github.com/gbruneau/Scale#readme",
+  "devDependencies": {
+    "@types/jquery": "^3.5.13",
+    "vite": "^2.8.4"
+  },
+  "dependencies": {
+    "jquery-ui": "^1.13.1"
+  }
 }

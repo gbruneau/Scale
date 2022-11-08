@@ -4,9 +4,9 @@
   "version": "1.0.2",
   "main": "index.html",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build --emptyOutDir",
-    "preview": "vite preview"
+    "preview": "vite preview --host"
   },
   "repository": {
     "type": "git",

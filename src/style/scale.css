@@ -179,6 +179,8 @@ a:hover {
 
 }
 
+/* ===================== Scaled List Backgrouds ========================*/
+
 .scMicro {
   background-image: url("./images/scMicro.jpg");
   background-size: cover;
@@ -207,6 +209,14 @@ a:hover {
   background-image: url("./images/scSolar.jpg");
   background-size: cover;
 }
+
+
+.scGalaxy
+{
+  background-image: url("./images/scGalaxy.jpg");
+  background-size: cover;
+}
+
 
 .scCosmic{
   background-image: url("./images/scCosmic.jpg");

@@ -110,7 +110,7 @@ class ScaleObjects {
                 r = i;
             }
         }
-        return r!=-1 ? this.ObjectList[r] : null;
+        return r != -1 ? this.ObjectList[r] : null;
     }
 
     getObjectBySize(aSizeInMeter) {
@@ -214,8 +214,7 @@ function refreshTable() {
         let obj1 = objList.getObjectByName(ob1Name, curLang);
         let obj2 = objList.getObjectByName(ob2Name, curLang);
 
-        if ((obj1!=null) && (obj2!=null))
-            {
+        if ((obj1 != null) && (obj2 != null)) {
             var ratio = obj2.SizeInMeter / obj1.SizeInMeter;
             if (ratio < 1)
                 ratioText = "🠗  1 : " + (1 / ratio).toPrecision(4);
@@ -259,8 +258,10 @@ function refreshTable() {
                     curClass = 'scTravel'
                 else if (curSize <= 1e+10)
                     curClass = 'scPlanet'
-                else if (curSize <= 1e+13)
+                else if (curSize <= 3e+16)
                     curClass = 'scSolar'
+                else if (curSize <= 1.25e+21)
+                    curClass = 'scGalaxy'
                 else
                     curClass = 'scCosmic'
 
@@ -293,9 +294,9 @@ function refreshTable() {
                 if (i + 1 == objList.length)
                     curRowHtml += "</tbody>"
                 htmlTableBody += curRowHtml;
-                }
-                $("tfoot").before(htmlTableBody);
-            
+            }
+            $("tfoot").before(htmlTableBody);
+
         }
     }
 }
@@ -307,8 +308,8 @@ function refreshLabels() {
     var oList;
     oList = objList.getNameList(curLang);
     $(function () {
-        autoComplete(document.getElementById("obj1"),oList);
-        autoComplete(document.getElementById("obj2"),oList);
+        autoComplete(document.getElementById("obj1"), oList);
+        autoComplete(document.getElementById("obj2"), oList);
     });
 
     $("[data-label-id]").each(function () {
@@ -342,8 +343,8 @@ reqUnit.done(function () {
                 refreshLabels();
             });
 
-            document.getElementById("obj1").addEventListener("change", refreshTable);     
-            document.getElementById("obj2").addEventListener("change", refreshTable);     
+            document.getElementById("obj1").addEventListener("change", refreshTable);
+            document.getElementById("obj2").addEventListener("change", refreshTable);
 
             /*
 

@@ -250,9 +250,9 @@ function refreshTable() {
 
                 // Buil the HTML statement
 
-                if (curSize <= 0.0001)
+                if (curSize <= 4e-5)
                     curClass = 'scMicro'
-                else if (curSize <= 100)
+                else if (curSize < 1000)
                     curClass = 'scHuman'
                 else if (curSize <= 1.2e+7)
                     curClass = 'scTravel'

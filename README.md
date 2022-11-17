@@ -5,7 +5,7 @@ Lenght and size scaling.
 What size would an orange be if the Earth is scaled to the size of a grain of sand?
 
 TODO: 
-* Add a task to convert the csv to json on demand
+* Add a package.json task to convert the raw csv to json on demand
 * Better Responsive behavior, perhaps using css flexbox
 
 See : https://www.w3schools.com/css/css3_flexbox.asp

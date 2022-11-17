@@ -1,5 +1,4 @@
-{
-	"Labels" :
+
 [
  {"id":1,"LabelEn":"Scale Length","LabelFr":"Changement d'échèle"}
 ,{"id":2,"LabelEn":"Scale","LabelFr":"Échèle"}
@@ -13,4 +12,3 @@
 ,{"id":10,"LabelEn":"Size in meter",	"LabelFr":"Grandeur en mètres"}
 ,{"id":11,"LabelEn":"Magnitude",	"LabelFr":"Taille approximative"}
 ]
-}

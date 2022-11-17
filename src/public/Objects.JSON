@@ -1,5 +1,3 @@
-{
-	"ObjectList" :
 [
 {"ObjectEn":"1 Micron","ObjectFr":"1 Micron","SizeInMeter":1e-6,"URL":"https://en.wikipedia.org/wiki/International_System_of_Units"},
 {"ObjectEn":"1 Millimeter (mm)","ObjectFr":"1 Millimètre (mm)","SizeInMeter":0.001,"URL":"https://en.wikipedia.org/wiki/International_System_of_Units"},
@@ -162,4 +160,3 @@
 {"ObjectEn":"Attometer","ObjectFr":"Attomètre","SizeInMeter":1e-18,"URL":"https://en.wikipedia.org/wiki/International_System_of_Units"}
 
 ]
-}

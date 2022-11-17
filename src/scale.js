@@ -143,7 +143,7 @@ class ScaleObjects {
 // Get all objects from JASON 
 function readObjects(aList, url) {
     return $.getJSON(url, function (data) {
-        $.each(data.ObjectList, function () {
+        $.each(data, function () {
             aList.addObject(this);
         })
     });
@@ -153,7 +153,7 @@ function readObjects(aList, url) {
 // the custom property data-label is used
 function readLabels(langs, url) {
     return $.getJSON(url, function (lData) {
-        $.each(lData.Labels, function () {
+        $.each(lData, function () {
             var newLabel = new t9nLabel(
                 [
                     ["EN", this.LabelEn],
@@ -169,7 +169,7 @@ function readLabels(langs, url) {
 function readUnits(aList, url) {
     return $.getJSON(url, function (uData) {
         // Fill the array
-        $.each(uData.Units, function () {
+        $.each(uData, function () {
             var newLabel = new t9nLabel(
                 [
                     ["FR", this.UnitSymbolFr],

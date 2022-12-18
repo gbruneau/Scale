@@ -55,7 +55,7 @@ class ScaleObject {
             ["EN", objectJson.ObjectEn]
         ]);
         this.#Labelt9n = newLabel;
-        this.SizeInMeter = objectJson.SizeInMeter;
+        this.SizeInMeter =  parseFloat(objectJson.SizeInMeter);
         this.URL = objectJson.URL;
         this.#Unit = refUnits.getBestUnit(this.SizeInMeter);
         this.SizeInUnit = this.SizeInMeter / this.#Unit.SizeInMeter;
@@ -238,7 +238,7 @@ function refreshTable() {
             for (var i = 0; i < objList.ObjectList.length; i++) {
                 curObj = objList.ObjectList[i];
                 curName = curObj.getObjectName(curLang);
-                curSize = curObj.SizeInMeter;
+                curSize =  parseFloat(curObj.SizeInMeter);
                 curUnitSymbol = curObj.getUnitSymbol(curLang);
                 curSizeInUnit = curObj.SizeInUnit;
                 curURL = curObj.URL;

@@ -1,4 +1,4 @@
-﻿ObjectEn,ObjectFr,SizeInMeter,URL
+ObjectEn,ObjectFr,SizeInMeter,URL
 Planck Length,Distance de Planck,1.61626E-35,https://en.wikipedia.org/wiki/Planck_length
 Attometer,Attomètre,1E-18,https://en.wikipedia.org/wiki/International_System_of_Units
 Femtometer,Femtomètre,1E-15,https://en.wikipedia.org/wiki/International_System_of_Units
@@ -38,7 +38,7 @@ Lenght of a football field,Longueur d'un terrain de football américain,48.8,htt
 Montreal Biosphere Diameter,Diamètre de la Biosphère de Montréal,76,https://en.wikipedia.org/wiki/Montreal_Biosphere
 Centre Vidéotron Quebec City (diameter),Diamètre du centre vidéotron (Québec),170,https://gbruneau.github.io/BestMap/#18/46.82802/-71.24791
 Width of Montreal's Olympic Stadium,Largeur du Stade Olypique de Montréal),260,https://en.wikipedia.org/wiki/Olympic_Stadium_(Montreal)
-1 Kilometer (Km) ,1 Kilomètre (Km),1000,https://en.wikipedia.org/wiki/International_System_of_Units
+"1 Kilometer (Km) ",1 Kilomètre (Km),1000,https://en.wikipedia.org/wiki/International_System_of_Units
 Horizon distance,Distance de l'horizon,5000,https://en.wikipedia.org/wiki/Horizon
 Montreal-Quebec City,Montréal-Québec,233000,http://www.gcmap.com/mapui?P=YUL-YQB&PM=b%3Aringb12%3Ared%2B%25N&MS=bm&PC=red&PW=3&DU=km
 Montreal-Atlanta,Montréal-Atlanta,1600000,http://www.gcmap.com/mapui?P=YUL-ATL&PM=b%3Aringb12%3Ared%2B%25N&MS=bm&PC=red&PW=3&DU=km
@@ -102,3 +102,4 @@ Distance to the M87 Black Hole,Distance de trous noir de M87,5.2034E+23,"https:/
 Quasar J0313–1806 Distance,Distance du quasar le plus loins (J0313–1806),1.26679E+26,https://en.wikipedia.org/wiki/J0313%E2%80%931806
 Most distant known galaxy (GN-z11),Distance de la galaxie la plus éloignée (GN-z11),3.02743E+26,https://en.wikipedia.org/wiki/GN-z11
 Observable universe diameter,Diamètre de l'univer visible,8.8E+26,https://en.wikipedia.org/wiki/Observable_universe
+Golden Gate Bridge,Pont Golden Gate,2737,https://www.goldengate.org/bridge/history-research/statistics-data/design-construction-stats/

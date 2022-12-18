@@ -5,6 +5,7 @@
   "main": "index.html",
   "scripts": {
     "dev": "vite --host",
+    "csv-to-json": "csvtojson ./rawdata/ScaleDataSource.csv  >./src/public/Objects.JSON",
     "build": "vite build --emptyOutDir",
     "preview": "vite preview --host"
   },
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/gbruneau/Scale#readme",
   "devDependencies": {
     "@types/jquery": "^3.5.13",
+    "csvtojson": "^2.0.10",
     "vite": "^2.8.4"
   },
   "dependencies": {

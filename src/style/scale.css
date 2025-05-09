@@ -24,14 +24,14 @@ body {
   background-color: var(--pageBG);
   font-family: 'Assistant';
   color: var(--pageFG);
-  font-size: 100%;
+  font-size: 12pt;
   margin: 0px 0px;
 
 }
 
 .objInput {
   width: 75%;
-  font-size: 2vw;
+  font-size: 14pt;
   background-color: var(--inputBG);
   font-family: 'Assistant';
 }
@@ -45,9 +45,9 @@ table {
   width: 100%;
   table-layout: fixed;
   background-color: var(--tableBG);
-  font-size: 1.5vw;
+  font-size: 11pt;
   color: var(--tableFR);
-  text-shadow: 2px 2px 2px #777;
+  text-shadow: 1px 1px 1px #777;
   font-weight: bold;
   
 }
@@ -129,15 +129,14 @@ table th {
 
 #langSelect {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 15px;
+  right: 5px;
 }
 
 #lang {
   background-color: var(--pageBG);
-  color: var(--tableBorder);
+  color: white;
 }
-
 
 /* ===================== Layout ========================*/
 
@@ -162,7 +161,7 @@ table th {
 h1 {
   color: var(--titleFG);
   background-color: var(--titleBG);
-  font-size: 5vw;
+  font-size: 16pt;
 }
 
 a  {

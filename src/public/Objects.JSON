@@ -150,10 +150,28 @@
         "URL": "https://en.wikipedia.org/wiki/International_System_of_Units"
     },
     {
+        "ObjectEn": "5¢ diameter Canadian coin",
+        "ObjectFr": "Diamètre d'un 5¢ Canadien",
+        "SizeInMeter": "0.0212",
+        "URL": "https://www.saskatooncoinclub.ca/articles/02a_coin_specs.html"
+    },
+    {
+        "ObjectEn": "Diameter of a marble",
+        "ObjectFr": "Diamètre d'une bille",
+        "SizeInMeter": "0.014",
+        "URL": "https://www.marblecollecting.com/"
+    },
+    {
         "ObjectEn": "Marble Diameter",
         "ObjectFr": "Le diamètre d'une bille",
         "SizeInMeter": "0.015",
         "URL": "https://www.marblecollecting.com/"
+    },
+     {
+        "ObjectEn": "Diameter of a golf tee",
+        "ObjectFr": "Diamètre d'un tee de golf",
+        "SizeInMeter": "0.0254",
+        "URL": "https://www.golf.com/instruction/2021/01/20/golf-tee-size-guide/"
     },
     {
         "ObjectEn": "Ping Pong Ball Diameter",
@@ -178,6 +196,24 @@
         "ObjectFr": "Orange",
         "SizeInMeter": "0.07",
         "URL": "https://askinglot.com/what-size-is-an-orange"
+    },
+    {
+        "ObjectEn": "Golf Ball Diameter",
+        "ObjectFr": "Le diamètre d'une balle de golf",
+        "SizeInMeter": "0.04267",
+        "URL": "https://en.wikipedia.org/wiki/Golf_ball"
+    },
+    {
+        "ObjectEn": "Baseball Diameter",
+        "ObjectFr": "Le diamètre d'une balle de baseball",
+        "SizeInMeter": "0.0737",
+        "URL": "https://en.wikipedia.org/wiki/Baseball"
+    },
+    {
+        "ObjectEn": "Basketball Diameter",
+        "ObjectFr": "Le diamètre d'un ballon de basket",
+        "SizeInMeter": "0.241",
+        "URL": "https://www.dimensions.com/element/basketball"
     },
     {
         "ObjectEn": "Table globe of Earth",
@@ -210,18 +246,17 @@
         "URL": "https://schneiderjobs.com/blog/how-long-is-a-semi-truck-fun-facts"
     },
     {
-        "ObjectEn": "Lenght of a football field",
-        "ObjectFr": "Longueur d'un terrain de football américain",
-        "SizeInMeter": "48.8",
-        "URL": "https://en.wikipedia.org/wiki/American_football_field"
-    },
-    {
         "ObjectEn": "Montreal Biosphere Diameter",
         "ObjectFr": "Diamètre de la Biosphère de Montréal",
         "SizeInMeter": "76",
         "URL": "https://en.wikipedia.org/wiki/Montreal_Biosphere"
     },
     {
+        "ObjectEn": "Lenght of a football field",
+        "ObjectFr": "Longueur d'un terrain de football américain",
+        "SizeInMeter": "110",
+        "URL": "https://en.wikipedia.org/wiki/American_football_field"
+    },    {
         "ObjectEn": "Centre Vidéotron Quebec City (diameter)",
         "ObjectFr": "Diamètre du centre vidéotron (Québec)",
         "SizeInMeter": "170",

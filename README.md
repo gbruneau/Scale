@@ -6,5 +6,7 @@ What size would an orange be if the Earth is scaled to the size of a grain of sa
 
 TODO: 
 * Better Responsive behavior with small screen , perhaps using css flexbox
+* Object range if notexxact object  with size (aaa x km - bbb z km)
+* Popup of units with unit namein FR/EN
 
 See : https://www.w3schools.com/css/css3_flexbox.asp

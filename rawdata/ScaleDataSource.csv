@@ -1,16 +1,15 @@
 ﻿ObjectEn,ObjectFr,SizeInMeter,URL
-Planck Length,Distance de Planck,0.000000000,https://en.wikipedia.org/wiki/Planck_length
-Attometer,Attomètre,0.00000,https://en.wikipedia.org/wiki/International_System_of_Units
-Femtometer,Femtomètre,0.00000,https://en.wikipedia.org/wiki/International_System_of_Units
-Neutron,Neutron,0.00000,https://en.wikipedia.org/wiki/Neutron
-Proton,Proton,0.000000000,https://www.nature.com/articles/d41586-019-03432-4
+Planck Length,Distance de Planck,1.6e-35,https://www.phys.unsw.edu.au/einsteinlight/jw/module6_Planck.htm
+Attometer,Attomètre,1.0e-18,https://en.wikipedia.org/wiki/International_System_of_Units
+Neutron,Neutron,1.0e-15,https://en.wikipedia.org/wiki/Neutron
+Proton,Proton,8.4e-16,https://www.nature.com/articles/d41586-019-03432-4
 Lead 208 Atom Nucleus,Noyaux d'un atome de plomb 208,6.34e-15,https://www.sciencedirect.com/topics/physics-and-astronomy/lead-isotopes
-1 Picometer (pm),1 Picomètre (pm),0.00000,https://en.wikipedia.org/wiki/International_System_of_Units
-Electron,Electron,0.00000,https://journals.aps.org/pr/abstract/10.1103/PhysRev.14.20
-Hydrogen atom Diameter,Diamètre d'un atome d'hydrogene,0.000000000,https://en.wikipedia.org/wiki/Bohr_radius
+1 Picometer (pm),1 Picomètre (pm),1.0e-12,https://en.wikipedia.org/wiki/International_System_of_Units
+Electron,Electron,2.8e-15,https://journals.aps.org/pr/abstract/10.1103/PhysRev.14.20
+Hydrogen atom Diameter,Diamètre d'un atome d'hydrogene,1.06e-10,https://en.wikipedia.org/wiki/Bohr_radius
 Water Molecule (H₂O),Molécule d'eau (H₂O),2.82e-10,https://yourhomewaterfilters.com/how-small-is-a-water-molecule/
-Caesium atom Diameter,Diamètre d'un atome de cesium,0.00000,https://en.wikipedia.org/wiki/Caesium
-Average Amino Acid size,Taille moyene d'un acide aminé,0.00000,http://book.bionumbers.org/how-big-are-biochemical-nuts-and-bolts/
+Caesium atom Diameter,Diamètre d'un atome de cesium,2.6e-10,https://en.wikipedia.org/wiki/Caesium
+Average Amino Acid size,Taille moyene d'un acide aminé,3.4e-10,http://book.bionumbers.org/how-big-are-biochemical-nuts-and-bolts/
 1 Nanometer (1nm),1 Nanomètre (nm),1.00e-09,https://en.wikipedia.org/wiki/International_System_of_Units
 Covid-19 Virus,Virus Covid-19,1.05e-08,https://www.news-medical.net/health/The-Size-of-SARS-CoV-2-Compared-to-Other-Things.aspx
 1 Micron (μm),1 Micron (μm),0.000001,https://en.wikipedia.org/wiki/International_System_of_Units

@@ -8,13 +8,13 @@
   --pageBG: #000000;
   --pageFG: rgb(87, 198, 206);
   --pageHighlight: #fff;
-  --titleBG: rgb(87, 198, 206);
-  --titleFG: rgb(3, 9, 41);
+  --titleFG: rgb(87, 198, 206);
+  --titleBG: rgb(3, 9, 41);
 
   --tableBorder: #777;
-  --tableBG:  rgb(255, 255, 255);
+  --tableBG: rgb(255, 255, 255);
   --tableFR: #000;
-  --tableLabelBG:  rgb(87, 198, 206);
+  --tableLabelBG: rgb(87, 198, 206);
   --tableLabelFG: #333;
   --inputBG: #ffd;
 }
@@ -29,12 +29,7 @@ body {
 
 }
 
-.objInput {
-  width: 75%;
-  font-size: 14pt;
-  background-color: var(--inputBG);
-  font-family: 'Assistant';
-}
+
 
 
 table {
@@ -42,14 +37,13 @@ table {
   border-collapse: collapse;
   margin: 0;
   padding: 0;
-  width: 100%;
   table-layout: fixed;
   background-color: var(--tableBG);
   font-size: 11pt;
   color: var(--tableFR);
   text-shadow: 1px 1px 1px #777;
   font-weight: bold;
-  
+
 }
 
 table caption {
@@ -76,61 +70,11 @@ table th {
   color: var(--tableLabelFG);
 }
 
-/* ========================= SMALL SCREEN ============ */
-
-@media screen and (max-width: 800px) {
-  table {
-    border: 0;
-    width: 166%;
-    font-size: 2vw;
-  }
-
-
-  table caption {
-    font-size: 1.3em;
-  }
-  
-  table thead ,table tfoot {
-    border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-  
-  table tr {
-    border-bottom: 3px solid var(--tableBorder);
-    display: block;
-    margin-bottom: .625em;
-  }
-  
-  table td {
-    border-bottom: 1px solid var(--tableBorder);
-    display: block;
-    text-align: right;
-  }
-  
-  table td::before {
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-    color: var(--tableLabelFG);
-  }
-  
-  table td:last-child {
-    border-bottom: 0;
-  }
-}
-
 /* === Langauge selector === */
 
 #langSelect {
-  position: fixed;
-  top: 15px;
-  right: 5px;
+width: 100%;
+text-align: right;
 }
 
 #lang {
@@ -138,37 +82,54 @@ table th {
   color: white;
 }
 
+.logoImg {
+  width: 64px;
+  max-width: 64px;
+  height: auto;
+}
+
+
 /* ===================== Layout ========================*/
 
 #formHeader {
   display: grid;
-  grid:  auto / auto auto ;
+  grid: auto / auto auto;
   grid-gap: 1px;
-  font-size: 2.5vw;
+  font-size: 18pt;
 }
 
 
 
 .formLabel {
   text-align: right;
-} 
+  font-size: 16px;
+}
 
 #fldRatio {
   font-weight: bold;
   color: var(--pageHighlight);
 }
 
+.objInput {
+  width: 400px;
+  font-size: 12pt;
+  background-color: var(--inputBG);
+  font-family: 'Assistant';
+}
+
+
 h1 {
   color: var(--titleFG);
-  background-color: var(--titleBG);
   font-size: 16pt;
 }
 
-a  {
+a {
   text-decoration: none;
 }
 
-a:link, a:visited, a:active {
+a:link,
+a:visited,
+a:active {
   color: var(--tableFR);
 }
 
@@ -190,34 +151,75 @@ a:hover {
   background-size: cover;
 }
 
-.scTravel 
-{
+.scTravel {
   background-image: url("./images/scTravel.jpg");
   background-size: cover;
 }
 
-.scPlanet 
-{
+.scPlanet {
   background-image: url("./images/scPlanet.jpg");
   background-size: cover;
 }
 
 
-.scSolar
-{
+.scSolar {
   background-image: url("./images/scSolar.jpg");
   background-size: cover;
 }
 
 
-.scGalaxy
-{
+.scGalaxy {
   background-image: url("./images/scGalaxy.jpg");
   background-size: cover;
 }
 
 
-.scCosmic{
+.scCosmic {
   background-image: url("./images/scCosmic.jpg");
   background-size: cover;
+}
+
+
+/* ===================== Main Container ========================*/
+
+.flex-mainContainer {
+  display: flex;
+}
+
+.flex-mainContainer>div {
+  background-color: rgb(65, 50, 52);
+}
+
+.flex-headContainer {
+  display: flex;
+}
+
+.flex-headContainer>div {
+  margin: 0px 10px;
+}
+
+.flex-tableContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (orientation: portrait) {
+  .flex-mainContainer {
+    flex-direction: column;
+  }
+
+  .flex-headContainer {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (orientation: landscape) {
+  .flex-mainContainer {
+    flex-direction: row;
+  }
+
+  .flex-headContainer {
+    flex-direction: column;
+  }
 }

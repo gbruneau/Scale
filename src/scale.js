@@ -6,12 +6,20 @@ import autoComplete from './script/autocomplete';
 import { t9nTranslation, t9nLabel } from './script/t9n';
 
 class Unit {
-    constructor(aSizeInMeter, aT9nLabel) {
-        this.UnitSymbol = aT9nLabel;
+    constructor(aSizeInMeter, aT9nUnitSymbol, aT9nUnitName, aT9nUnitDescription) {
+        this.UnitSymbol = aT9nUnitSymbol;
         this.SizeInMeter = aSizeInMeter;
+        this.UnitName = aT9nUnitName;
+        this.UnitDesc = aT9nUnitDescription;
     }
     getUnitSymbol(aLang) {
         return this.UnitSymbol.Label(aLang);
+    }
+    getUnitName(aLang) {
+        return this.UnitName.Label(aLang);
+    }
+    getUnitDesc(aLang) {
+        return this.UnitDesc.Label(aLang);
     }
 }
 
@@ -19,15 +27,16 @@ class Units {
     constructor() {
         this.UnitList = [];
     }
-    addUnit(aSizeInMeter, at9nLabel) {
-        let newUnit = new Unit(aSizeInMeter, at9nLabel);
+    addUnit(aSizeInMeter, at9nSymbol, at9nName, at9nDesc) {
+        let newUnit = new Unit(aSizeInMeter, at9nSymbol, at9nName, at9nDesc);
         this.UnitList.push(newUnit);
     }
     getBestUnit(aSizeInMeter) {
+        this.sortBySize();
         var bestUnit = this.UnitList[0];
-        for (var u = 0; u < this.UnitList.length; u++) {
-            if (Math.log10(this.UnitList[u].SizeInMeter) <= Math.log10(aSizeInMeter))
-                bestUnit = this.UnitList[u];
+        for (var aUnitId = 0; aUnitId < this.UnitList.length; aUnitId++) {
+            if (Math.log10(this.UnitList[aUnitId].SizeInMeter) <= Math.log10(aSizeInMeter))
+                bestUnit = this.UnitList[aUnitId];
         }
         return bestUnit;
     }
@@ -45,7 +54,7 @@ class Units {
     }
 }
 
-
+// Scale Object
 class ScaleObject {
     #Unit;
     #Labelt9n;
@@ -54,8 +63,9 @@ class ScaleObject {
             ["FR", objectJson.ObjectFr],
             ["EN", objectJson.ObjectEn]
         ]);
+        this.BaseObject = objectJson;
         this.#Labelt9n = newLabel;
-        this.SizeInMeter =  parseFloat(objectJson.SizeInMeter);
+        this.SizeInMeter = parseFloat(objectJson.SizeInMeter);
         this.URL = objectJson.URL;
         this.#Unit = refUnits.getBestUnit(this.SizeInMeter);
         this.SizeInUnit = this.SizeInMeter / this.#Unit.SizeInMeter;
@@ -66,6 +76,14 @@ class ScaleObject {
     getUnitSymbol(aLang) {
         return this.#Unit.getUnitSymbol(aLang);
     }
+    getUnitName(aLang) {
+        return this.#Unit.getUnitName(aLang);
+    }
+    getUnitDesc(aLang) {
+        return this.#Unit.getUnitDesc(aLang);
+    }
+
+
 }
 
 class ScaleObjects {
@@ -170,12 +188,22 @@ function readUnits(aList, url) {
     return $.getJSON(url, function (uData) {
         // Fill the array
         $.each(uData, function () {
-            var newLabel = new t9nLabel(
+            var newT9nSymbol = new t9nLabel(
                 [
                     ["FR", this.UnitSymbolFr],
                     ["EN", this.UnitSymbolEn]
                 ]);
-            aList.addUnit(this.SizeInMeter, newLabel);
+            var newT9nDesc = new t9nLabel(
+                [
+                    ["FR", this.UnitDescFr],
+                    ["EN", this.UnitDescEn]
+                ]);
+            var newT9nName = new t9nLabel(
+                [
+                    ["FR", this.UnitNameFr],
+                    ["EN", this.UnitNameEn]
+                ]);
+            aList.addUnit(this.SizeInMeter, newT9nSymbol, newT9nName, newT9nDesc);
         });
     });
 }
@@ -204,10 +232,10 @@ function refreshTable() {
     var ob2Name = $("#obj2").val();
     var i;
     var ratioText;
-    var curName, ratioText, curSize, curUnitSymbol, curObj, curSizeInUnit, curURL;
-    var scaledSize, scaledUnit, scaledUnitSymbol, scaledSizeInUnit;
-    var curClass, curMagnitudeObjName, curRowHtml;
-    var curMagnitudeObjName, curMagnitudeObj;
+    var objectName, ratioText, objectSizeInM, objectUnit, theObject, objectSizeInUnit, objectUrl;
+    var scaledSizeInM, scaledUnit, scaledUnitSymbol, scaledSizeInUnit, scaledUnitDesc, scaledUnitName;
+    var sectionCssClass, curRowHtml;
+    var magnitudeObjectName, objectMatchingScale;
 
     var curLang = languages.CurLang;
     if (ob1Name != "" & ob2Name != "") {
@@ -216,80 +244,101 @@ function refreshTable() {
 
         if ((obj1 != null) && (obj2 != null)) {
             var ratio = obj2.SizeInMeter / obj1.SizeInMeter;
+            // Display ratio
             if (ratio < 1)
-                ratioText = "🠗  1 : " + (1 / ratio).toPrecision(4);
+                ratioText = "🠗  1 : " + toNormalScientificString(1 / ratio);
             else
-                ratioText = "🠕  " + ratio.toPrecision(4) + " : 1";
-
+                ratioText = "🠕  " + toNormalScientificString(ratio) + " : 1";
             $("#fldRatio").text(ratioText);
+            // Clear the table body
             $("tbody").remove();
 
-            var htmlRowTemplate = "<tr>"
-                + "<td data-label='" + languages.getLabel(6) + "'><a href='%ur' target='_blank'>%na</a></td>"
-                + "<td data-label='" + languages.getLabel(9) + "'>%m</td>"
-                + "<td data-label='" + languages.getLabel(7) + "'>%si</td>"
-                + "<td data-label='" + languages.getLabel(8) + "'>%sc</td>"
-                + "<td data-label='" + languages.getLabel(10) + "'>%on</td>"
-                + "</tr>";
-            var oldClass = 'scMicro';
+            var htmlRowTemplate = `<tr>
+                <td data-label='${languages.getLabel(6)}'><a href='%url' target='_blank'>%on</a></td>
+                <td data-label='${languages.getLabel(9)}'>%osm</td>
+                <td data-label='${languages.getLabel(7)}' title='%oun: %oud'>%osu</td>
+                <td data-label='${languages.getLabel(8)}' title='%sun: %sud'>%scu</td>
+                <td data-label='${languages.getLabel(10)}'>%mon</td>
+                </tr>`;
+
+            var oldSectionCssClass = 'scMicro';
 
             var htmlTableBody = "";
 
             for (var i = 0; i < objList.ObjectList.length; i++) {
-                curObj = objList.ObjectList[i];
-                curName = curObj.getObjectName(curLang);
-                curSize =  parseFloat(curObj.SizeInMeter);
-                curUnitSymbol = curObj.getUnitSymbol(curLang);
-                curSizeInUnit = curObj.SizeInUnit;
-                curURL = curObj.URL;
+                theObject = objList.ObjectList[i];
+                objectName = theObject.getObjectName(curLang);
+                objectSizeInM = parseFloat(theObject.SizeInMeter);
+                objectUnit = theObject.getUnitSymbol(curLang);
+                objectSizeInUnit = theObject.SizeInUnit;
+                objectUrl = theObject.URL;
 
-                scaledSize = curSize * ratio;
-                scaledUnit = objList.Units.getBestUnit(scaledSize);
+                scaledSizeInM = objectSizeInM * ratio;
+                scaledUnit = objList.Units.getBestUnit(scaledSizeInM);
                 scaledUnitSymbol = scaledUnit.getUnitSymbol(curLang);
-                scaledSizeInUnit = scaledSize / scaledUnit.SizeInMeter;
+                scaledUnitDesc = scaledUnit.getUnitDesc(curLang);
+                scaledUnitName = scaledUnit.getUnitName(curLang);
+                scaledSizeInUnit = scaledSizeInM / scaledUnit.SizeInMeter;
 
                 // Buil the HTML statement
 
-                if (curSize <= 4e-5)
-                    curClass = 'scMicro'
-                else if (curSize < 1000)
-                    curClass = 'scHuman'
-                else if (curSize <= 1.2e+7)
-                    curClass = 'scTravel'
-                else if (curSize <= 1e+10)
-                    curClass = 'scPlanet'
-                else if (curSize <= 3e+16)
-                    curClass = 'scSolar'
-                else if (curSize <= 1.25e+21)
-                    curClass = 'scGalaxy'
+                // Determine the section CSS class
+                if (objectSizeInM <= 4e-5)
+                    sectionCssClass = 'scMicro'
+                else if (objectSizeInM < 1000)
+                    sectionCssClass = 'scHuman'
+                else if (objectSizeInM <= 1.2e+7)
+                    sectionCssClass = 'scTravel'
+                else if (objectSizeInM <= 1e+10)
+                    sectionCssClass = 'scPlanet'
+                else if (objectSizeInM <= 3e+16)
+                    sectionCssClass = 'scSolar'
+                else if (objectSizeInM <= 1.25e+21)
+                    sectionCssClass = 'scGalaxy'
                 else
-                    curClass = 'scCosmic'
+                    sectionCssClass = 'scCosmic'
 
-
+                // Build the row HTML
                 if (i == 0)
-                    curRowHtml = "<tbody class='" + oldClass + "'>" + htmlRowTemplate
+                    curRowHtml = "<tbody class='" + oldSectionCssClass + "'>" + htmlRowTemplate
                 else
-                    if (curClass != oldClass) {
-                        curRowHtml = "</tbody><tbody class='" + curClass + "'>" + htmlRowTemplate
-                        oldClass = curClass;
+                    if (sectionCssClass != oldSectionCssClass) {
+                        curRowHtml = "</tbody><tbody class='" + sectionCssClass + "'>" + htmlRowTemplate
+                        oldSectionCssClass = sectionCssClass;
                     }
                     else
                         curRowHtml = htmlRowTemplate
 
-                curMagnitudeObj = objList.getObjectBySize(scaledSize);
-                if (curMagnitudeObj != null)
-                    curMagnitudeObjName = curMagnitudeObj.getObjectName(curLang);
+                objectMatchingScale = objList.getObjectBySize(scaledSizeInM);
+                if (objectMatchingScale != null)
+                    magnitudeObjectName = objectMatchingScale.getObjectName(curLang);
                 else
-                    curMagnitudeObjName = "";
+                    magnitudeObjectName = "";
 
+                // Replace all the markers
+                //  %on : object name
+                curRowHtml = curRowHtml.replace("%on", objectName);
+                //  %osm : object size in meter
+                curRowHtml = curRowHtml.replace("%osm", toNormalScientificString(objectSizeInM) + " m");
+                //  %osu : object size in unit
+                //  %oun : object unit name
+                //  %oud : object unit description  
+                curRowHtml = curRowHtml.replace("%osu", toNormalScientificString(objectSizeInUnit) + " " + objectUnit);
+                curRowHtml = curRowHtml.replace("%oun", theObject.getUnitName(curLang));
+                curRowHtml = curRowHtml.replace("%oud", theObject.getUnitDesc(curLang));
+                //  %scu : scaled size in unit
+                //  %sun : scaled unit name
+                //  %sud : scaled unit description  
+                curRowHtml = curRowHtml.replace("%scu", toNormalScientificString(scaledSizeInUnit) + " " + scaledUnitSymbol);
+                curRowHtml = curRowHtml.replace("%sud", scaledUnitDesc);
+                curRowHtml = curRowHtml.replace("%sun", scaledUnitName);
+                //  %mon : magnitude object name
+                curRowHtml = curRowHtml.replace("%mon", magnitudeObjectName);
+                //      
+                curRowHtml = curRowHtml.replace("%url", objectUrl);
+                curRowHtml = curRowHtml.replace("%cl", sectionCssClass);
+ 
 
-                curRowHtml = curRowHtml.replace("%na", curName);
-                curRowHtml = curRowHtml.replace("%si", curSizeInUnit.toPrecision(4) + " " + curUnitSymbol);
-                curRowHtml = curRowHtml.replace("%sc", scaledSizeInUnit.toPrecision(4) + " " + scaledUnitSymbol);
-                curRowHtml = curRowHtml.replace("%ur", curURL);
-                curRowHtml = curRowHtml.replace("%m", curSize.toPrecision(4) + " m");
-                curRowHtml = curRowHtml.replace("%cl", curClass);
-                curRowHtml = curRowHtml.replace("%on", curMagnitudeObjName);
 
                 if (i + 1 == objList.length)
                     curRowHtml += "</tbody>"
@@ -345,14 +394,48 @@ reqUnit.done(function () {
 
             document.getElementById("obj1").addEventListener("change", refreshTable);
             document.getElementById("obj2").addEventListener("change", refreshTable);
-
-            /*
-
-            $("#obj1,#obj2").on("change", function () {
-                refreshTable();
-            });
-*/
         });
     });
 });
 
+function toNormalScientificString(num, digits = 4) {
+    const superscripts = {
+        '0': '⁰',
+        '1': '¹',
+        '2': '²',
+        '3': '³',
+        '4': '⁴',
+        '5': '⁵',
+        '6': '⁶',
+        '7': '⁷',
+        '8': '⁸',
+        '9': '⁹',
+        '-': '⁻',
+        '+': ''
+
+    };
+
+
+    var scienceString = ""
+    // if num is between 1000 and 0.0001, use normal notation
+
+    if ((num >= 0.0001) && (num < 10000)) {
+        scienceString = num.toPrecision(digits);
+    }
+    else {
+        const expString = num.toExponential();
+        // Split into mantissa and exponent parts
+        const [mantissa, expPart] = expString.split('e');
+
+        // Convert exponent to superscript
+        let superscriptExp = '';
+        for (const ch of expPart) {
+            superscriptExp += superscripts[ch];
+        }
+        // Construct the final string
+        scienceString = `${Number(mantissa).toPrecision(digits)} x 10${superscriptExp}`;
+    }
+
+    return scienceString;
+
+}

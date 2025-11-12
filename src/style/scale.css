@@ -17,6 +17,7 @@
   --tableLabelBG: rgb(87, 198, 206);
   --tableLabelFG: #333;
   --inputBG: #ffd;
+  --inputFG: #000;
 }
 
 
@@ -78,8 +79,8 @@ text-align: right;
 }
 
 #lang {
-  background-color: var(--pageBG);
-  color: white;
+  background-color: var(--inputBG);
+  color: var(--);
 }
 
 .logoImg {
@@ -114,6 +115,7 @@ text-align: right;
   width: 400px;
   font-size: 12pt;
   background-color: var(--inputBG);
+  color: var(--inputFG);
   font-family: 'Assistant';
 }
 

@@ -171,6 +171,13 @@ class ScaleObject {
          * @type {number}
          */
         this.SizeInMeter = parseFloat(objectJson.SizeInMeter);
+
+        /**
+         * Indicates if the object represents a distance (true) or a size (false).
+         * @type {boolean}
+         */
+        this.IsDistance = (objectJson.IsDistance.toLowerCase() === "true");
+
         /**
          * URL associated with the object.
          * @type {string}
@@ -472,6 +479,7 @@ function refreshTable() {
             $("tbody").remove();
 
             var htmlRowTemplate = `<tr>
+                <td data-label='${languages.getLabel(12)}'>%dis</td>
                 <td data-label='${languages.getLabel(6)}'><a href='%url' target='_blank'>%on</a></td>
                 <td data-label='${languages.getLabel(9)}'>%osm</td>
                 <td data-label='${languages.getLabel(7)}' title='%oun: %oud'>%osu</td>
@@ -531,6 +539,7 @@ function refreshTable() {
                     magnitudeObjectName = "";
 
                 // Replace template markers with actual values
+                curRowHtml = curRowHtml.replace("%dis", theObject.IsDistance ? "↦" : "⬤");
                 curRowHtml = curRowHtml.replace("%on", objectName);
                 curRowHtml = curRowHtml.replace("%osm", toNormalScientificString(objectSizeInM) + " m");
                 curRowHtml = curRowHtml.replace("%osu", toNormalScientificString(objectSizeInUnit) + " " + objectUnit);

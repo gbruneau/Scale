@@ -21,6 +21,8 @@
 }
 
 
+
+/* ===================== General Styles ========================*/
 body {
   background-color: var(--pageBG);
   font-family: 'Assistant';
@@ -30,8 +32,28 @@ body {
 
 }
 
+h1 {
+  color: var(--titleFG);
+  font-size: 16pt;
+}
 
+a {
+  text-decoration: none;
+}
 
+a:link,
+a:visited,
+a:active {
+  color: var(--tableFR);
+}
+
+a:hover {
+  color: var(--tableLabelFG);
+  background-color: var(--tableLabelBG);
+
+}
+
+/* ===================== Tables ========================*/
 
 table {
   border: 1px solid var(--tableBorder);
@@ -62,9 +84,6 @@ table td {
   text-align: left;
 }
 
-
-
-
 table th {
   letter-spacing: .1em;
   background-color: var(--tableLabelBG);
@@ -73,15 +92,19 @@ table th {
 
 /* === Langauge selector === */
 
+
 #langSelect {
 width: 100%;
 text-align: right;
 }
 
 #lang {
-  background-color: var(--inputBG);
-  color: var(--);
+  background-color: #077;
+  color: #7ff;
+  margin: 10px;
 }
+
+/* ===================== Logo Image ========================*/
 
 .logoImg {
   width: 64px;
@@ -90,7 +113,7 @@ text-align: right;
 }
 
 
-/* ===================== Layout ========================*/
+/* ===================== Form Layout ========================*/
 
 #formHeader {
   display: grid;
@@ -98,8 +121,6 @@ text-align: right;
   grid-gap: 1px;
   font-size: 18pt;
 }
-
-
 
 .formLabel {
   text-align: right;
@@ -117,28 +138,6 @@ text-align: right;
   background-color: var(--inputBG);
   color: var(--inputFG);
   font-family: 'Assistant';
-}
-
-
-h1 {
-  color: var(--titleFG);
-  font-size: 16pt;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:link,
-a:visited,
-a:active {
-  color: var(--tableFR);
-}
-
-a:hover {
-  color: var(--tableLabelFG);
-  background-color: var(--tableLabelBG);
-
 }
 
 /* ===================== Scaled List Backgrouds ========================*/
@@ -182,7 +181,7 @@ a:hover {
 }
 
 
-/* ===================== Main Container ========================*/
+/* ===================== Flex and Flex Containers ========================*/
 
 .flex-mainContainer {
   display: flex;

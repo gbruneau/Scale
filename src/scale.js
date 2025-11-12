@@ -124,7 +124,6 @@ class Units {
                 bestUnit = this.UnitList[aUnitId];
             }
         }
-        console.log(`size=${aSizeInMeter}  unit=${JSON.stringify(bestUnit)}`)
         return bestUnit;
     }
 

@@ -52,13 +52,13 @@ class t9nTranslation {
      */
     #Labels;
     #FallbackLanguage = "FR";
-    
+
     /**
      * @param {Array} langArray Array of languages ID such as ["EN", "FR"]
        @param {string} fallbackLanguage Fallback language code if user language is not supported (default to "FR") 
      */
-        constructor(langArray,fallbackLanguage="FR") {
-    
+    constructor(langArray, fallbackLanguage = "FR") {
+
         this.#FallbackLanguage = fallbackLanguage;
 
         this.SupportedLanguages = [];
@@ -73,19 +73,16 @@ class t9nTranslation {
          */
         this.CurLang = this.UserLang; /* Default to user language */
     }
+
+    /**
+     * @property {string} UserLang User default browser language code
+     */
     get UserLang() {
         var l = navigator.language.split("-")[0].toUpperCase();
         var r = this.#FallbackLanguage; /* if not supported, fallback language */
         for (var i = 0; i < this.SupportedLanguages.length; i++)
             if (this.SupportedLanguages[i] == l) r = l;
         return r;
-    }
-    /**
-     * Change the current language
-     * @param {String} newLang Language ID such as FR ou EN.
-     */
-    setCurlang(newLang) {
-        this.CurLang = newLang;
     }
     /**
      * Add a label
@@ -102,12 +99,35 @@ class t9nTranslation {
      * @returns {String} A translated label in the selected language
      */
     getLabel(id) {
-        var labelT9N = this.#Labels.get(id);
+        // If id is a numeric string, convert to integer so map lookup matches numeric keys
+        var key = id;
+        if (typeof id === 'string') {
+            var maybeInt = parseInt(id, 10);
+            if (!Number.isNaN(maybeInt) && String(maybeInt) === id.trim()) {
+                key = maybeInt;
+            }
+        }
+
+        var labelT9N = this.#Labels.get(key);
         if (labelT9N != null) {
             let label = labelT9N.Label(this.CurLang);
-            if (label == null) label = labelT9N.Label(this.fallbackLanguage);
+            if (label == null) label = labelT9N.Label(this.#FallbackLanguage);
             return label;
         }
+        return id;
+    }
+    /**
+     * Utility to translate the labels text content of all the elements matching a query selector
+     * @param {*} aQuerySelector  Query selector to find the elements to translate(default to [data-label-id])     
+     * @param {*} labelAttr Attribute containing the label ID (default to data-label-id)
+     */
+    translateLabels(aQuerySelector = "[data-label-id]", labelAttr = "data-label-id") {
+        var elements = document.querySelectorAll(aQuerySelector);
+        elements.forEach((el) => {
+            var id = el.getAttribute(labelAttr);
+            var label = this.getLabel(id);
+            el.textContent = (label != null) ? label : `*LABEL [${id}]*`;
+        });
     }
 }
 

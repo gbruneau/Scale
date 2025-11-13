@@ -1,8 +1,12 @@
 import './style/scale.css';
 import $ from 'jquery';
 import autoComplete from './script/autocomplete';
-import APPbuild from "./version.json";
 import { t9nTranslation, t9nLabel } from './script/t9n';
+
+// Import application build number
+import APPbuild from "./version.json";
+import { toNormalScientificString } from './script/stringUtils';
+
 
 /**
  * @typedef {Object} t9nLabel
@@ -116,11 +120,10 @@ class Units {
      */
     getBestUnit(aSizeInMeter) {
         this.sortBySize();
-       
+
         var bestUnit = this.UnitList[0];
         for (var aUnitId = 0; aUnitId < this.UnitList.length; aUnitId++) {
-            if (Math.log10(this.UnitList[aUnitId].SizeInMeter) <= Math.log10(aSizeInMeter))
-            {
+            if (Math.log10(this.UnitList[aUnitId].SizeInMeter) <= Math.log10(aSizeInMeter)) {
                 bestUnit = this.UnitList[aUnitId];
             }
         }
@@ -564,12 +567,7 @@ function refreshTable() {
     }
 }
 
-/**
- * Update all displayed labels according to the current language.
- * Also refreshes autocomplete lists for object input fields.
- * @returns {void}
- */
-function refreshLabels() {
+function translateData() {
     languages.CurLang = $("#lang").val();
     var curLang = languages.CurLang;
     var oList;
@@ -578,13 +576,8 @@ function refreshLabels() {
         autoComplete(document.getElementById("obj1"), oList);
         autoComplete(document.getElementById("obj2"), oList);
     });
-
-    $("[data-label-id]").each(function () {
-        var id = parseInt($(this).attr("data-label-id"));
-        var label = languages.getLabel(id);
-        $(this).text(label);
-    })
 }
+
 
 /**
  * Populate the language dropdown (#lang) with supported languages.
@@ -607,9 +600,11 @@ reqUnit.done(function () {
         var reqObject = readObjects(objList, objectsURL);
         reqObject.done(function () {
             fillLangList();
-            refreshLabels();
+            languages.translateLabels();
+            translateData();
             $("#lang").on("change", function () {
-                refreshLabels();
+                languages.translateLabels();
+                translateData();
             });
 
             document.getElementById("obj1").addEventListener("change", refreshTable);
@@ -618,48 +613,3 @@ reqUnit.done(function () {
     });
 });
 
-/**
- * Format a number either in normal notation or in a readable scientific form.
- * - If num is between 0.0001 (inclusive) and 10000 (exclusive), returns normal notation with toPrecision(digits).
- * - Otherwise returns "mantissa x 10^exponent" with exponent using Unicode superscripts.
- * @param {number} aNumber Number to format.
- * @param {number} [digits=4] Number of significant digits (default 4).
- * @returns {string} Formatted string, e.g. "9.999 x 10⁹".
- */
-function toNormalScientificString(aNumber, digits = 4) {
-    const superscripts = {
-        '0': '⁰',
-        '1': '¹',
-        '2': '²',
-        '3': '³',
-        '4': '⁴',
-        '5': '⁵',
-        '6': '⁶',
-        '7': '⁷',
-        '8': '⁸',
-        '9': '⁹',
-        '-': '⁻',
-        '+': ''
-    };
-
-    var scienceString = ""
-    // Use normal notation for numbers in the readable range
-    if ((aNumber >= 0.0001) && (aNumber < 10000)) {
-        scienceString = aNumber.toPrecision(digits);
-    }
-    else {
-        const expString = aNumber.toExponential();
-        // Split into mantissa and exponent parts
-        const [mantissa, expPart] = expString.split('e');
-
-        // Convert exponent characters to superscript
-        let superscriptExp = '';
-        for (const ch of expPart) {
-            superscriptExp += superscripts[ch];
-        }
-        // Build final string
-        scienceString = `${Number(mantissa).toPrecision(digits)} x 10${superscriptExp}`;
-    }
-
-    return scienceString;
-}

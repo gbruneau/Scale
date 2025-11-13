@@ -1,7 +1,7 @@
 import './style/scale.css';
 import $ from 'jquery';
 import autoComplete from './script/autocomplete';
-
+import APPbuild from "./version.json";
 import { t9nTranslation, t9nLabel } from './script/t9n';
 
 /**
@@ -444,6 +444,9 @@ var languages = new t9nTranslation(["EN", "FR"]);
  */
 var objList = new ScaleObjects(unitList);
 var reqUnit = readUnits(unitList, unitURL);
+
+$("#version").text(APPbuild);
+
 
 /**
  * Refresh the entire results table.

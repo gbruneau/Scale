@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --host",
     "csv-to-json": "csvtojson ./rawdata/ScaleDataSource.csv  >./src/public/Objects.JSON;csvtojson ./rawdata/UnitDataSource.csv  >./src/public/Units.JSON",
-    "build": "vite build --emptyOutDir",
+    "build": "date +%Y%m%d.%H%M>src/version.json;vite build --emptyOutDir",
     "preview": "vite preview --host",
     "deploy": "rm -r  ../gbruneau.github.io/Scale/;cp -R dist/Scale/ ../gbruneau.github.io/"
   },

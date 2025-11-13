@@ -13,6 +13,7 @@
   right: 0;
   color: black;
   background-color:  var(--inputBG);
+  font-size: 14pt;
 }
 
 .autocomplete-items div {

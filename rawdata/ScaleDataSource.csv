@@ -16,7 +16,7 @@ true,1 Micron (μm),1 Micron (μm),0.000001,https://en.wikipedia.org/wiki/Intern
 false,Amoeba,Amibe,0.00000300,https://en.wikipedia.org/wiki/Amoeba
 false,Blod Cell Diameter,Diamètre d'une cellule rouge,0.0000070,https://en.wikipedia.org/wiki/Red_blood_cell
 false,Grain of icing sugar,Grain de sucre en poudre,2.40e-05,https://en.wikipedia.org/wiki/Sucrose
-false,Human air width,Diamètre d'un cheveux,0.00007,https://www.bench.com/setting-the-benchmark/how-big-is-a-micron
+false,Human air width,Diamètre d'un cheveux,0.000075,https://en.wikipedia.org/wiki/Hair's_breadth
 false,Typographic Point or dot,Point typogaphique,0.0003530,https://en.wikipedia.org/wiki/Point_(typography)
 false,Grain of sand,Grain de sable,0.000415,https://en.wikipedia.org/wiki/Grain_size
 false,Grain of table sugar,Grain de sucre de table,0.0005,https://en.wikipedia.org/wiki/Sucrose

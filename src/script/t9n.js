@@ -78,11 +78,12 @@ class t9nTranslation {
      * @property {string} UserLang User default browser language code
      */
     get UserLang() {
-        var l = navigator.language.split("-")[0].toUpperCase();
-        var r = this.#FallbackLanguage; /* if not supported, fallback language */
-        for (var i = 0; i < this.SupportedLanguages.length; i++)
-            if (this.SupportedLanguages[i] == l) r = l;
-        return r;
+        const browserLang = (typeof navigator !== "undefined" && navigator.language)
+            ? String(navigator.language).split("-")[0].toUpperCase()
+            : this.#FallbackLanguage;
+        return (this.SupportedLanguages && this.SupportedLanguages.includes(browserLang))
+            ? browserLang
+            : this.#FallbackLanguage;
     }
     /**
      * Add a label

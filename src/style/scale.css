@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Assistant&family=Signika:wght@398&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 @import url("./autocomplete.cs");
 
 /* All color variables */
@@ -25,7 +25,7 @@
 /* ===================== General Styles ========================*/
 body {
   background-color: var(--pageBG);
-  font-family: 'Assistant';
+  font-family: 'Lexend', sans-serif;
   color: var(--pageFG);
   font-size: 12pt;
   margin: 0px 0px;

@@ -27,15 +27,18 @@ body {
   background-color: var(--pageBG);
   font-family: 'Lexend', sans-serif;
   color: var(--pageFG);
-  font-size: 12pt;
   margin: 0px 0px;
-
 }
+
 
 h1 {
   color: var(--titleFG);
-  font-size: 16pt;
 }
+
+
+
+
+
 
 a {
   text-decoration: none;
@@ -62,11 +65,10 @@ table {
   padding: 0;
   table-layout: fixed;
   background-color: var(--tableBG);
-  font-size: 11pt;
   color: var(--tableFR);
   text-shadow: 1px 1px 1px #777;
   font-weight: bold;
-
+  width: 100%;
 }
 
 table caption {
@@ -75,11 +77,6 @@ table caption {
 
 table tr {
   border: 1px solid var(--tableBorder);
-  padding: .35em;
-}
-
-table th,
-table td {
   padding: .625em;
   text-align: left;
 }
@@ -90,25 +87,55 @@ table th {
   color: var(--tableLabelFG);
 }
 
-/* === Langauge selector === */
-
-
-#langSelect {
-width: 100%;
-text-align: right;
+tr>th:nth-child(1) {
+  width: 5%
+} 
+tr>th:nth-child(2) {
+  width: 30%
 }
+tr>th:nth-child(3) {
+  width: 13%
+}
+tr>th:nth-child(4) {
+  width: 13%
+}
+tr>th:nth-child(5) {
+  width: 13%
+}
+
+
+/* === Header Block === */
+
+#headLogo,
+#headAppName,
+#headForm,
+#headLang {
+  padding: 0px;
+  margin: 0px;
+}
+
+
+
+
+
+/* Language Selector */
+
 
 #lang {
   background-color: #077;
   color: #7ff;
-  margin: 10px;
+  margin: 0px;
 }
+
+#headLang {
+  text-align: right;
+}
+
 
 /* ===================== Logo Image ========================*/
 
 .logoImg {
-  width: 64px;
-  max-width: 64px;
+  width: 100%;
   height: auto;
 }
 
@@ -119,12 +146,11 @@ text-align: right;
   display: grid;
   grid: auto / auto auto;
   grid-gap: 1px;
-  font-size: 18pt;
+  justify-content: start;
 }
 
 .formLabel {
   text-align: right;
-  font-size: 16px;
 }
 
 #fldRatio {
@@ -133,8 +159,6 @@ text-align: right;
 }
 
 .objInput {
-  width: 400px;
-  font-size: 12pt;
   background-color: var(--inputBG);
   color: var(--inputFG);
   font-family: 'Assistant';
@@ -187,22 +211,11 @@ text-align: right;
   display: flex;
 }
 
-.flex-mainContainer>div {
-  background-color: rgb(65, 50, 52);
-}
 
 .flex-headContainer {
   display: flex;
 }
 
-.flex-headContainer>div {
-  margin: 0px 10px;
-}
-
-.flex-tableContainer {
-  display: flex;
-  flex-direction: column;
-}
 
 @media (orientation: portrait) {
   .flex-mainContainer {
@@ -212,15 +225,102 @@ text-align: right;
   .flex-headContainer {
     flex-direction: row;
     justify-content: center;
+    width: 100%;
+    display: flex;
   }
+
+  .flex-tableContainer {
+    width: 100%;
+  }
+
+  #headLogo {
+    width: 10%;
+  }
+
+  #headAppName {
+    width: 15%;
+  }
+
+  #headForm {
+    width: 65%;
+  }
+
+  #headLang {
+    width: 10%;
+  }
+
+  h1 {
+    font-size: clamp(12pt, 2vh,24pt);
+  
+  }
+
+  #version {
+    font-size: clamp(8pt, 0.75vh,12pt);
+  }
+
+  table {
+    font-size: clamp(9pt, 0.8vh,14pt);
+  }
+
+  .formLabel {
+    font-size: clamp(11pt,1.2vh,14pt);
+  }
+
+  .objInput {
+    width: 30vh;
+    font-size: clamp(11pt, 1.4vh,16pt);
+  }
+
 }
 
 @media (orientation: landscape) {
   .flex-mainContainer {
     flex-direction: row;
+    justify-content: space-around;
+    margin: 0px;
+    padding: 0px;
   }
 
   .flex-headContainer {
     flex-direction: column;
+    width: 19%;
+    display: flex;
+    padding: 0px;
+    margin: 0px;
   }
+
+  .flex-tableContainer {
+    width: 80%;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #headLogo,
+  #headAppName,
+  #headForm,
+  #headLang {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: clamp(12pt, 2vw, 24pt);
+  }
+
+  #version {
+    font-size: clamp(8pt,0.75vw,12pt);
+  }
+
+  table {
+    font-size: clamp(10pt,  0.9vw, 14pt);
+  }
+
+  .formLabel {
+    font-size: clamp(11pt,  1.1vw, 16pt);
+  }
+
+  .objInput {
+    width: 13vw;
+    font-size: clamp(11pt, 1.2vw, 16pt);
+  }
+
 }

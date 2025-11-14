@@ -49,9 +49,9 @@ function refreshTable() {
             var ratio = obj2.SizeInMeter / obj1.SizeInMeter;
             // Display ratio
             if (ratio < 1)
-                ratioText = "🠗  1 : " + toNormalScientificString(1 / ratio);
+                ratioText = "↓ 1 : " + toNormalScientificString(1 / ratio);
             else
-                ratioText = "🠕  " + toNormalScientificString(ratio) + " : 1";
+                ratioText = "↑ " + toNormalScientificString(ratio) + " : 1";
             $("#fldRatio").text(ratioText);
             // Clear existing table body
             $("tbody").remove();

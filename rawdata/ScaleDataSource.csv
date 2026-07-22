@@ -38,6 +38,7 @@ false,Soccer Ball Diameter,Le diamètre d'un balon de soccer,0.69,https://en.wik
 true,1 Meter (m),1 Mètre (m),1,https://en.wikipedia.org/wiki/International_System_of_Units
 false,Average car lenght,Longueur moyene d'une voiture,4.5,https://www.nadaguides.com/Cars/Shopping-Guides/how-long-is-the-average-car
 false,Average semi truck lenght,Longueur moyene d'un camion remorque,21.3,https://schneiderjobs.com/blog/how-long-is-a-semi-truck-fun-facts
+true,Airbus A220-100 length,Longueur d'un airbus A220-100,35,https://en.wikipedia.org/wiki/Airbus_A220#Variants
 false,Montreal Biosphere Diameter,Diamètre de la Biosphère de Montréal,76,https://en.wikipedia.org/wiki/Montreal_Biosphere
 false,Lenght of a football field,Longueur d'un terrain de football américain,110.0,https://en.wikipedia.org/wiki/American_football_field
 false,Centre Vidéotron Quebec City (diameter),Diamètre du centre vidéotron (Québec),170,https://gbruneau.github.io/BestMap/#18/46.82802/-71.24791
@@ -45,7 +46,10 @@ false,Width of Montreal's Olympic Stadium,Largeur du Stade Olypique de Montréal
 true,"1 Kilometer (Km) ",1 Kilomètre (Km),1000,https://en.wikipedia.org/wiki/International_System_of_Units
 false,Golden Gate Bridge,Pont Golden Gate,2737,https://www.goldengate.org/bridge/history-research/statistics-data/design-construction-stats/
 true,Horizon distance,Distance de l'horizon,5000,https://en.wikipedia.org/wiki/Horizon
+true,Lenght of Lac Saint-Jean (QC),Longueur du Lac Saint-Jean,45000,https://saguenaylacsaintjean.ca/decouvrir-le-saglac/experiences-distinctives/routes-decouverte/la-route-touristique-tour-du-lac-saint-jean
 true,Montreal-Quebec City,Montréal-Québec,233000,http://www.gcmap.com/mapui?P=YUL-YQB&PM=b%3Aringb12%3Ared%2B%25N&MS=bm&PC=red&PW=3&DU=km
+true,Quebec City-Toronto,Québec-Toronto,733000, http://www.gcmap.com/mapui?P=yqb-yyz&MS=wls&DU=km
+true,Quebec City-Philadelphia,Québec-Philadelphie,829000, http://www.gcmap.com/mapui?P=yqb-PHL&MS=wls&DU=km
 true,Montreal-Atlanta,Montréal-Atlanta,1600000,http://www.gcmap.com/mapui?P=YUL-ATL&PM=b%3Aringb12%3Ared%2B%25N&MS=bm&PC=red&PW=3&DU=km
 false,Moon Diameter,Diamètre de la Lune,3474800,https://en.wikipedia.org/wiki/Moon
 false,Mercury Diameter,Diamètre de Mercure,4880000,https://en.wikipedia.org/wiki/Mercury_(planet)
@@ -98,6 +102,7 @@ true,Distance to Orion nebulae,Distance de la nébuleuse d'Orion,127152000000000
 true,Distance to V762 Cassiopeia,Distance de V762 Cassiopeia,26150400000000000000.000000000,https://www.universeguide.com/star/5926/v762cassiopeiae
 true,Distance to the galactic center,Distance du centre de la galaxie,245979000000000000000.000000000,https://en.wikipedia.org/wiki/Galactic_Center
 false,Milky way galacy stellar disk diameter,Diamètre du disque stellaire de la galaxie voie lacté,1135289999999999934464.000000000,https://www.sciencenews.org/article/astronomers-have-found-edge-milky-way-size
+false,Andromed Galaxy diameter,Diamètre de la galaxie andromède,2.3e21,https://en.wikipedia.org/wiki/Orders_of_magnitude_(length)
 true,Magelan Cluster distance,Distance du nuage de magellan,1542099999999999868928.00000000,https://en.wikipedia.org/wiki/Large_Magellanic_Cloud
 true,"Nearest Galaxy, Andromeda (M31)",Distance la galaxie d'andromède (M31),23610000000000001572864.0000000,https://en.wikipedia.org/wiki/Andromeda_Galaxy
 false,Local group diameter,Diamètre du groupe local,89999999999999995805696.00000,https://en.wikipedia.org/wiki/Local_Group

@@ -1,226 +1,217 @@
-@import url('https://fonts.googleapis.com/css2?family=Assistant&family=Signika:wght@398&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Assistant&family=Signika:wght@398&display=swap");
 @import url("./autocomplete.cs");
 
 /* All color variables */
 
-
 :root {
-  --pageBG: #000000;
-  --pageFG: rgb(87, 198, 206);
-  --pageHighlight: #fff;
-  --titleFG: rgb(87, 198, 206);
-  --titleBG: rgb(3, 9, 41);
+    --pageBG: #000000;
+    --pageFG: rgb(87, 198, 206);
+    --pageHighlight: #fff;
+    --titleFG: rgb(87, 198, 206);
+    --titleBG: rgb(3, 9, 41);
 
-  --tableBorder: #777;
-  --tableBG: rgb(255, 255, 255);
-  --tableFR: #000;
-  --tableLabelBG: rgb(87, 198, 206);
-  --tableLabelFG: #333;
-  --inputBG: #ffd;
-  --inputFG: #000;
+    --tableBorder: #777;
+    --tableBG: rgb(255, 255, 255);
+    --tableFR: #000;
+    --tableLabelBG: rgb(87, 198, 206);
+    --tableLabelFG: #333;
+    --inputBG: #ffd;
+    --inputFG: #000;
 }
-
-
 
 /* ===================== General Styles ========================*/
 body {
-  background-color: var(--pageBG);
-  font-family: 'Assistant';
-  color: var(--pageFG);
-  font-size: 12pt;
-  margin: 0px 0px;
-
+    background-color: var(--pageBG);
+    font-family: "Assistant";
+    color: var(--pageFG);
+    font-size: 12pt;
+    margin: 0px 0px;
 }
 
 h1 {
-  color: var(--titleFG);
-  font-size: 16pt;
+    color: var(--titleFG);
+    font-size: 16pt;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 a:link,
 a:visited,
 a:active {
-  color: var(--tableFR);
+    color: var(--tableFR);
 }
 
 a:hover {
-  color: var(--tableLabelFG);
-  background-color: var(--tableLabelBG);
-
+    color: var(--tableLabelFG);
+    background-color: var(--tableLabelBG);
 }
 
 /* ===================== Tables ========================*/
 
 table {
-  border: 1px solid var(--tableBorder);
-  border-collapse: collapse;
-  margin: 0;
-  padding: 0;
-  table-layout: fixed;
-  background-color: var(--tableBG);
-  font-size: 11pt;
-  color: var(--tableFR);
-  text-shadow: 1px 1px 1px #777;
-  font-weight: bold;
-
+    border: 1px solid var(--tableBorder);
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    table-layout: fixed;
+    background-color: var(--tableBG);
+    font-size: 11pt;
+    color: var(--tableFR);
+    text-shadow: 1px 1px 1px #777;
+    font-weight: bold;
 }
 
 table caption {
-  margin: .5em 0 .75em;
+    margin: 0.5em 0 0.75em;
 }
 
 table tr {
-  border: 1px solid var(--tableBorder);
-  padding: .35em;
+    border: 1px solid var(--tableBorder);
+    padding: 0.35em;
 }
 
 table th,
 table td {
-  padding: .625em;
-  text-align: left;
+    padding: 0.625em;
+    text-align: left;
 }
 
 table th {
-  letter-spacing: .1em;
-  background-color: var(--tableLabelBG);
-  color: var(--tableLabelFG);
+    letter-spacing: 0.1em;
+    background-color: var(--tableLabelBG);
+    color: var(--tableLabelFG);
 }
 
 /* === Langauge selector === */
 
-
 #langSelect {
-width: 100%;
-text-align: right;
+    width: 100%;
+    text-align: right;
 }
 
 #lang {
-  background-color: #077;
-  color: #7ff;
-  margin: 10px;
+    background-color: #077;
+    color: #7ff;
+    margin: 10px;
 }
 
 /* ===================== Logo Image ========================*/
 
 .logoImg {
-  width: 64px;
-  max-width: 64px;
-  height: auto;
+    width: 64px;
+    max-width: 64px;
+    height: auto;
 }
-
 
 /* ===================== Form Layout ========================*/
 
 #formHeader {
-  display: grid;
-  grid: auto / auto auto;
-  grid-gap: 1px;
-  font-size: 18pt;
+    display: grid;
+    grid: auto / auto auto;
+    grid-gap: 1px;
+    font-size: 18pt;
 }
 
 .formLabel {
-  text-align: right;
-  font-size: 16px;
+    text-align: right;
+    font-size: 16px;
 }
 
 #fldRatio {
-  font-weight: bold;
-  color: var(--pageHighlight);
+    font-weight: bold;
+    color: var(--pageHighlight);
 }
 
 .objInput {
-  width: 400px;
-  font-size: 12pt;
-  background-color: var(--inputBG);
-  color: var(--inputFG);
-  font-family: 'Assistant';
+    width: 400px;
+    font-size: 12pt;
+    background-color: var(--inputBG);
+    color: var(--inputFG);
+    font-family: "Assistant";
 }
 
 /* ===================== Scaled List Backgrouds ========================*/
 
-.scMicro {
-  background-image: url("./images/scMicro.jpg");
-  background-size: cover;
+.scNano {
+    background-image: url("./images/scNano.jpg");
+    background-size: cover;
 }
-
+.scMicro {
+    background-image: url("./images/scMicro.jpg");
+    background-size: cover;
+}
 .scHuman {
-  background-image: url("./images/scHuman.jpg");
-  background-size: cover;
+    background-image: url("./images/scHuman.jpg");
+    background-size: cover;
 }
 
 .scTravel {
-  background-image: url("./images/scTravel.jpg");
-  background-size: cover;
+    background-image: url("./images/scTravel.jpg");
+    background-size: cover;
 }
 
 .scPlanet {
-  background-image: url("./images/scPlanet.jpg");
-  background-size: cover;
+    background-image: url("./images/scPlanet.jpg");
+    background-size: cover;
 }
-
 
 .scSolar {
-  background-image: url("./images/scSolar.jpg");
-  background-size: cover;
+    background-image: url("./images/scSolar.jpg");
+    background-size: cover;
 }
-
 
 .scGalaxy {
-  background-image: url("./images/scGalaxy.jpg");
-  background-size: cover;
+    background-image: url("./images/scGalaxy.jpg");
+    background-size: cover;
 }
-
 
 .scCosmic {
-  background-image: url("./images/scCosmic.jpg");
-  background-size: cover;
+    background-image: url("./images/scCosmic.jpg");
+    background-size: cover;
 }
-
 
 /* ===================== Flex and Flex Containers ========================*/
 
 .flex-mainContainer {
-  display: flex;
+    display: flex;
 }
 
-.flex-mainContainer>div {
-  background-color: rgb(65, 50, 52);
+.flex-mainContainer > div {
+    background-color: rgb(65, 50, 52);
 }
 
 .flex-headContainer {
-  display: flex;
+    display: flex;
 }
 
-.flex-headContainer>div {
-  margin: 0px 10px;
+.flex-headContainer > div {
+    margin: 0px 10px;
 }
 
 .flex-tableContainer {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 @media (orientation: portrait) {
-  .flex-mainContainer {
-    flex-direction: column;
-  }
+    .flex-mainContainer {
+        flex-direction: column;
+    }
 
-  .flex-headContainer {
-    flex-direction: row;
-    justify-content: center;
-  }
+    .flex-headContainer {
+        flex-direction: row;
+        justify-content: center;
+    }
 }
 
 @media (orientation: landscape) {
-  .flex-mainContainer {
-    flex-direction: row;
-  }
+    .flex-mainContainer {
+        flex-direction: row;
+    }
 
-  .flex-headContainer {
-    flex-direction: column;
-  }
+    .flex-headContainer {
+        flex-direction: column;
+    }
 }

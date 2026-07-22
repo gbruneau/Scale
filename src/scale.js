@@ -486,7 +486,7 @@ function refreshTable() {
       $("tbody").remove();
 
       var htmlRowTemplate = `<tr>
-                <td data-label='${languages.getLabel(12)}'>%dis</td>
+                <td data-label='${languages.getLabel(12)}'  title='%dit'>%dis</td>
                 <td data-label='${languages.getLabel(6)}'><a href='%url' target='_blank'>%on</a></td>
                 <td data-label='${languages.getLabel(9)}'>%osm</td>
                 <td data-label='${languages.getLabel(7)}' title='%oun: %oud'>%osu</td>
@@ -541,6 +541,12 @@ function refreshTable() {
         curRowHtml = curRowHtml.replace(
           "%dis",
           theObject.IsDistance ? "↦" : "⬤",
+        );
+        curRowHtml = curRowHtml.replace(
+          "%dit",
+          theObject.IsDistance
+            ? languages.getLabel(13)
+            : languages.getLabel(14),
         );
         curRowHtml = curRowHtml.replace("%on", objectName);
         curRowHtml = curRowHtml.replace(

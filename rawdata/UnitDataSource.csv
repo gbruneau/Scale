@@ -1,5 +1,9 @@
 UnitSymbolFr,UnitSymbolEn,SizeInMeter,UnitNameFr,UnitNameEn,UnitDescFr,UnitDescEn
-ℓP,ℓP,1.616255E-35,Longueur de Planck,Planck Length,≈1.6 × 10⁻³⁵ m,≈1.6 × 10⁻³⁵ m
+ℓP,ℓP,1.616255E-35,Longueur de Planck,Planck Length,≈1.6 × 10⁻³⁵ m,≈1.6 × 10⁻³⁵ m1
+qm,qm,1E-30,Quectomètre,Quectometre,10⁻³⁰ m,10⁻³⁰ m
+rm,rm,1E-27,Rontomètre,Rontometre,10⁻²⁷ m,10⁻²⁷ m
+ym,ym,1E-24,Yoctomètre,Yoctometre,10⁻²⁴ m,10⁻²⁴ m
+zm,zm,1E-21,Zeptomètre,Zeptometre,10⁻²¹ m,10⁻²¹ m
 nm,nm,1E-18,Atomètre,Atometre,10⁻¹⁸ m,10⁻¹⁸ m
 fm,fm,1E-15,Femtomètre,Femtometre,10⁻¹⁵ m,10⁻¹⁵ m
 pm,pm,1E-12,Picomètre,Picometre,10⁻¹² m,10⁻¹² m
@@ -17,3 +21,4 @@ Al,l y,9.4607E+015,Années lumière,Light years,Distance parcourue par la lumier
 K Al,K ly,9.4607E+018,Millier d’années lumière,Thousands of light-years,Distance parcourue par la lumiere pendant mille ans (≈9.46 × 10¹⁵ Km),Distance traveled by light in a thousand years (≈9.46 × 10¹⁵ Km)
 M Al,M ly,9.4607E+021,Million d’années lumière,Million of light years,Distance parcourue par la lumiere pendant un millions  d'années (≈9.46 × 10¹⁸ Km),Distance traveled by light in one million years (≈9.46 × 10¹⁸ Km)
 G Al,G ly,9.4607E+024,Milliard d’années lumière,Billions of light year,Distance parcourue par la lumiere pendant un milliard d'années (≈9.46 × 10²¹ Km),Distance traveled by light in one billion years (≈9.46 × 10²¹ Km)
+T Al,T ly,9.4607E+027,Billion d’années lumière,Trillion of light year,Distance parcourue par la lumiere pendant un billion d'années (≈9.46 × 10²⁴ Km),Distance traveled by light in one trillion years (≈9.46 × 10²⁴ Km)

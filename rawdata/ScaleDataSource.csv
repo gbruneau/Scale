@@ -70,6 +70,9 @@ false,Diameter of Sirius,Diamètre de Sirius,2379290000,https://en.wikipedia.org
 true,Mercury to sun,Distance Mercure-soleil,57909000000,https://en.wikipedia.org/wiki/Mercury_(planet)
 true,Venus to sun,Distance Vénus-Soleil,59843500000,https://en.wikipedia.org/wiki/Venus
 false,Diameter of Aldebaran,Diamètre de Aldebaran,62752100000,https://en.wikipedia.org/wiki/Aldebaran
+false,Diameter of Alpha Centauri,Diamètre de Alpha du Centaure,1.69e9,https://en.wikipedia.org/wiki/Alpha_Centauri_A
+true,Distance to Deneb - The farthest naked eyes visible star, Distance de Deneb - Étoile la plus éloigné visible àl'oeuil nu, 2.46e19, https://en.wikipedia.org/wiki/Deneb
+false,Deneb Diameter - The farthest naked eyes visible star, Damètre de Deneb - Étoile la plus éloigné visible àl'oeuil nu, 280e9, https://scaleofuniverse.com/en/universe/deneb
 false,Mercury Orbit Diameter,Diamètre de l'orbite de Mercure,115818000000.000000000,https://en.wikipedia.org/wiki/Mercury_(planet)
 false,Venus Orbit Diameter,Diamètre de l'orbite de Vénus,119687000000.000000000,https://en.wikipedia.org/wiki/Venus
 true,Earth to sun,Distance Terre-Soleil,149598000000.000000000,https://en.wikipedia.org/wiki/Earth

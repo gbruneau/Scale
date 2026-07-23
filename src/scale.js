@@ -1,5 +1,4 @@
 import "./style/scale.css";
-import $ from "jquery";
 import autoComplete from "./script/autocomplete";
 import APPbuild from "./version.json";
 import { t9nTranslation, t9nLabel } from "./script/t9n";
@@ -363,58 +362,62 @@ class ScaleObjects {
  * Read objects from a JSON URL and populate a ScaleObjects collection.
  * @param {ScaleObjects} aList Target collection to populate.
  * @param {string} url URL of the JSON resource.
- * @returns {JQuery.jqXHR} jqXHR promise returned by $.getJSON.
+ * @returns {Promise<void>} Promise resolving once objects are loaded.
  */
 function readObjects(aList, url) {
-  return $.getJSON(url, function (data) {
-    $.each(data, function () {
-      aList.addObject(this);
+  return fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((entry) => aList.addObject(entry));
     });
-  });
 }
 
 /**
  * Read translation labels from a JSON URL and add them to a t9nTranslation instance.
  * @param {t9nTranslation} langs Translation manager to populate.
  * @param {string} url URL of the labels JSON.
- * @returns {JQuery.jqXHR} jqXHR promise returned by $.getJSON.
+ * @returns {Promise<void>} Promise resolving once labels are loaded.
  */
 function readLabels(langs, url) {
-  return $.getJSON(url, function (lData) {
-    $.each(lData, function () {
-      var newLabel = new t9nLabel([
-        ["EN", this.LabelEn],
-        ["FR", this.LabelFr],
-      ]);
-      langs.addLabel(this.id, newLabel);
+  return fetch(url)
+    .then((response) => response.json())
+    .then((lData) => {
+      lData.forEach((entry) => {
+        var newLabel = new t9nLabel([
+          ["EN", entry.LabelEn],
+          ["FR", entry.LabelFr],
+        ]);
+        langs.addLabel(entry.id, newLabel);
+      });
     });
-  });
 }
 
 /**
  * Read unit definitions from a JSON URL and populate a Units collection.
  * @param {Units} aList Units collection to populate.
  * @param {string} url URL of the units JSON.
- * @returns {JQuery.jqXHR} jqXHR promise returned by $.getJSON.
+ * @returns {Promise<void>} Promise resolving once units are loaded.
  */
 function readUnits(aList, url) {
-  return $.getJSON(url, function (uData) {
-    $.each(uData, function () {
-      var newT9nSymbol = new t9nLabel([
-        ["FR", this.UnitSymbolFr],
-        ["EN", this.UnitSymbolEn],
-      ]);
-      var newT9nDesc = new t9nLabel([
-        ["FR", this.UnitDescFr],
-        ["EN", this.UnitDescEn],
-      ]);
-      var newT9nName = new t9nLabel([
-        ["FR", this.UnitNameFr],
-        ["EN", this.UnitNameEn],
-      ]);
-      aList.addUnit(this.SizeInMeter, newT9nSymbol, newT9nName, newT9nDesc);
+  return fetch(url)
+    .then((response) => response.json())
+    .then((uData) => {
+      uData.forEach((entry) => {
+        var newT9nSymbol = new t9nLabel([
+          ["FR", entry.UnitSymbolFr],
+          ["EN", entry.UnitSymbolEn],
+        ]);
+        var newT9nDesc = new t9nLabel([
+          ["FR", entry.UnitDescFr],
+          ["EN", entry.UnitDescEn],
+        ]);
+        var newT9nName = new t9nLabel([
+          ["FR", entry.UnitNameFr],
+          ["EN", entry.UnitNameEn],
+        ]);
+        aList.addUnit(entry.SizeInMeter, newT9nSymbol, newT9nName, newT9nDesc);
+      });
     });
-  });
 }
 
 // ============ MAIN =========
@@ -441,7 +444,7 @@ var languages = new t9nTranslation(["EN", "FR"]);
 var objList = new ScaleObjects(unitList);
 var reqUnit = readUnits(unitList, unitURL);
 
-$("#version").text(APPbuild);
+document.getElementById("version").textContent = APPbuild;
 
 /**
  * Refresh the entire results table.
@@ -451,8 +454,8 @@ $("#version").text(APPbuild);
  */
 function refreshTable() {
   objList.sortBySize();
-  var ob1Name = $("#obj1").val();
-  var ob2Name = $("#obj2").val();
+  var ob1Name = document.getElementById("obj1").value;
+  var ob2Name = document.getElementById("obj2").value;
   var i;
   var ratioText;
   var objectName,
@@ -471,19 +474,19 @@ function refreshTable() {
   var magnitudeObjectName, objectMatchingScale;
 
   var curLang = languages.CurLang;
-  if ((ob1Name != "") & (ob2Name != "")) {
+  if (ob1Name !== "" && ob2Name !== "") {
     let obj1 = objList.getObjectByName(ob1Name, curLang);
     let obj2 = objList.getObjectByName(ob2Name, curLang);
 
     if (obj1 != null && obj2 != null) {
       var ratio = obj2.SizeInMeter / obj1.SizeInMeter;
-      // Display ratio
       if (ratio < 1)
         ratioText = "🠗  1 : " + toNormalScientificString(1 / ratio);
       else ratioText = "🠕  " + toNormalScientificString(ratio) + " : 1";
-      $("#fldRatio").text(ratioText);
-      // Clear existing table body
-      $("tbody").remove();
+
+      document.getElementById("fldRatio").textContent = ratioText;
+
+      document.querySelectorAll("tbody").forEach((tbody) => tbody.remove());
 
       var htmlRowTemplate = `<tr>
                 <td data-label='${languages.getLabel(12)}'  title='%dit'>%dis</td>
@@ -512,7 +515,6 @@ function refreshTable() {
         scaledUnitName = scaledUnit.getUnitName(curLang);
         scaledSizeInUnit = scaledSizeInM / scaledUnit.SizeInMeter;
 
-        // Determine CSS section based on size
         if (objectSizeInM < 3e-10) sectionCssClass = "scNano";
         else if (objectSizeInM < 4e-5) sectionCssClass = "scMicro";
         else if (objectSizeInM < 1000) sectionCssClass = "scHuman";
@@ -522,7 +524,6 @@ function refreshTable() {
         else if (objectSizeInM <= 1.25e21) sectionCssClass = "scGalaxy";
         else sectionCssClass = "scCosmic";
 
-        // Build the row HTML and group into tbody sections
         if (i == 0)
           curRowHtml =
             "<tbody class='" + oldSectionCssClass + "'>" + htmlRowTemplate;
@@ -537,7 +538,6 @@ function refreshTable() {
           magnitudeObjectName = objectMatchingScale.getObjectName(curLang);
         else magnitudeObjectName = "";
 
-        // Replace template markers with actual values
         curRowHtml = curRowHtml.replace(
           "%dis",
           theObject.IsDistance ? "↦" : "⬤",
@@ -569,10 +569,22 @@ function refreshTable() {
         curRowHtml = curRowHtml.replace("%url", objectUrl);
         curRowHtml = curRowHtml.replace("%cl", sectionCssClass);
 
-        if (i + 1 == objList.length) curRowHtml += "</tbody>";
+        if (i + 1 === objList.ObjectList.length) curRowHtml += "</tbody>";
         htmlTableBody += curRowHtml;
       }
-      $("tfoot").before(htmlTableBody);
+
+      // const tableHead = document.querySelector("thead");
+      // if (tableHead) {
+      //   const fragment = document
+      //     .createRange()
+      //     .createContextualFragment(htmlTableBody);
+      //   tableHead.parentNode.insertBefore(fragment, tableHead.nextSibling);
+      // }
+
+      const tableHead = document.querySelector("thead");
+      if (tableHead) {
+         tableHead.insertAdjacentHTML("afterend", htmlTableBody);
+      }
     }
   }
 }
@@ -583,19 +595,18 @@ function refreshTable() {
  * @returns {void}
  */
 function refreshLabels() {
-  languages.CurLang = $("#lang").val();
+  languages.CurLang = document.getElementById("lang").value;
   var curLang = languages.CurLang;
   var oList;
   oList = objList.getNameList(curLang);
-  $(function () {
-    autoComplete(document.getElementById("obj1"), oList);
-    autoComplete(document.getElementById("obj2"), oList);
-  });
 
-  $("[data-label-id]").each(function () {
-    var id = parseInt($(this).attr("data-label-id"));
+  autoComplete(document.getElementById("obj1"), oList);
+  autoComplete(document.getElementById("obj2"), oList);
+
+  document.querySelectorAll("[data-label-id]").forEach((element) => {
+    var id = parseInt(element.getAttribute("data-label-id"), 10);
     var label = languages.getLabel(id);
-    $(this).text(label);
+    element.textContent = label;
   });
 }
 
@@ -604,31 +615,29 @@ function refreshLabels() {
  * @returns {void}
  */
 function fillLangList() {
+  var langSelect = document.getElementById("lang");
   for (var i = 0; i < languages.SupportedLanguages.length; i++) {
     var optName = languages.SupportedLanguages[i];
-    var html = "<option value='" + optName + "'>" + optName + "</option>";
-    $("#lang").append(html);
+    var option = document.createElement("option");
+    option.value = optName;
+    option.textContent = optName;
+    langSelect.appendChild(option);
   }
-  $("#lang").val(languages.CurLang);
+  langSelect.value = languages.CurLang;
 }
 
-reqUnit.done(function () {
+reqUnit.then(() => {
   unitList.sortBySize();
-  var reqLabel = readLabels(languages, labelURL);
-  reqLabel.done(function () {
-    objList = new ScaleObjects(unitList);
-    var reqObject = readObjects(objList, objectsURL);
-    reqObject.done(function () {
-      fillLangList();
-      refreshLabels();
-      $("#lang").on("change", function () {
-        refreshLabels();
-      });
-
-      document.getElementById("obj1").addEventListener("change", refreshTable);
-      document.getElementById("obj2").addEventListener("change", refreshTable);
-    });
-  });
+  return readLabels(languages, labelURL);
+}).then(() => {
+  objList = new ScaleObjects(unitList);
+  return readObjects(objList, objectsURL);
+}).then(() => {
+  fillLangList();
+  refreshLabels();
+  document.getElementById("lang").addEventListener("change", refreshLabels);
+  document.getElementById("obj1").addEventListener("change", refreshTable);
+  document.getElementById("obj2").addEventListener("change", refreshTable);
 });
 
 /**
